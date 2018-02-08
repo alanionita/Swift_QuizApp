@@ -10,6 +10,11 @@ import UIKit
 
 class DataViewController: UIViewController {
 
+    @IBAction func startQuizButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let quizQuestions = storyboard.instantiateViewController(withIdentifier: "QuizQuestions")
+        self.present(quizQuestions, animated: true, completion: nil)
+    }
     @IBOutlet weak var dataLabel: UILabel!
     var dataObject: String = ""
 
