@@ -21,7 +21,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         // question1
-        questions.append(Question(questionText: "1 - Which of these is likely to be lacking in a vegan diet?", imageURL: "vitamins", answers: ["a) Vitamin E", "b) Vitamin C", "c) Vitamin B12"], correctAnswers: [2] , correctAnswerDetail: "Vitamin B12 is likely to fall short in diets made up solely of plant foods, as its main food sources are meat and fish. Some foods, including some nutritional yeasts and meat substitutes, may contain added B12, which would be listed on their labels. However, supplements of B12 are often recommended as a reliable source of the vitamin."))
+        questions.append(Question(questionText: "1 - Which of these is likely to be lacking in a vegan diet?", imageURL: "vitamins", answers: ["a) Vitamin E", "b) Vitamin C", "c) Vitamin B12"], correctAnswers: [2], correctAnswerDetail: "Vitamin B12 is likely to fall short in diets made up solely of plant foods, as its main food sources are meat and fish. Some foods, including some nutritional yeasts and meat substitutes, may contain added B12, which would be listed on their labels. However, supplements of B12 are often recommended as a reliable source of the vitamin."))
         // question2
         questions.append(Question(questionText: "2 - Beans and legumes are plant-based sources of iron. Which of these contains the most iron?", imageURL: "legumes", answers: ["a) Kidney beans", "b) Lentils", "c) Lima beans", "d) Chickpeas"], correctAnswers: [1], correctAnswerDetail: "Cooked, per cup, lentils contain 6.6 mg, compared to 5.2 mg in kidney beans, 4.7 mg in chickpeas, and 4.5 mg in lima beans."))
         
