@@ -10,11 +10,10 @@ import UIKit
 
 class QuestionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // array of data 
-    
-    
+    // outlets
     @IBOutlet weak var tableView: UITableView!
     
+    // defining the data array
     var questions = [Question]()
     
     override func viewDidLoad() {

@@ -11,11 +11,8 @@ import UIKit
 class QuestionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleImage: UIImageView!
-    @IBOutlet weak var questionText: UITextView!
-    @IBOutlet weak var label1: UILabel!
-    @IBOutlet weak var label2: UILabel!
-    @IBOutlet weak var label3: UILabel!
-    @IBOutlet weak var label4: UILabel!
+    @IBOutlet weak var questionText: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,12 +25,31 @@ class QuestionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateUI (question: Question) {
-        titleImage.image = UIImage.init(named:"\(question.getImageUrl)")
-        questionText.text = question.getQuestionText
-        label1.text = question.getAnswersByID(0)
-        label2.text = question.getAnswersByID(1)
-        label3.text = question.getAnswersByID(2)
+    // clears the stackView of any children view so that the recycler behaves correctly when reusing assets
+    func clearStackViewChildrenViews (stackView: UIStackView) {
+        stackView.subviews.forEach { $0.removeFromSuperview()}
     }
-
+    
+    // takes the data and populates the view
+    func updateUI (question: Question) {
+        // set image
+        titleImage.image = UIImage(named: question.getImageUrl)
+        
+        // set question text
+        questionText.text = question.getQuestionText
+        
+        // clear the answers stackview
+        clearStackViewChildrenViews(stackView: stackView)
+        
+        // get the answers for each question
+        let answers = question.getAnswers
+        
+        // add to the answers stackview the correct amount of labels for each possible answer
+        for answer in answers {
+            let label = UILabel()
+            label.text = answer
+            stackView.addArrangedSubview(label)
+        }
+        
+    }
 }

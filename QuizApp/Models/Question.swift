@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Question {
+struct Question {
     private var _questionText: String!
     private var _imageURL: String!
     private var _answers: [String]
@@ -53,4 +53,5 @@ class Question {
             return "Label"
         }
     }
+
 }
