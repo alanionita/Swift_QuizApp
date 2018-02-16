@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import LTHRadioButton
 
 class QuestionTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var titleImage: UIImageView!
     @IBOutlet weak var questionText: UILabel!
     @IBOutlet weak var stackView: UIStackView!
@@ -46,9 +47,23 @@ class QuestionTableViewCell: UITableViewCell {
         
         // add to the answers stackview the correct amount of labels for each possible answer
         for answer in answers {
+            // components to be used
+            let answerStackView = UIStackView()
+            let checkbox = LTHRadioButton(diameter: 24, selectedColor: UIColor.purple, deselectedColor: UIColor.lightGray)
             let label = UILabel()
+            
+            // styling the answersStackView
+            answerStackView.axis = .horizontal
+            answerStackView.distribution = .fillProportionally
+            answerStackView.addArrangedSubview(checkbox)
+            answerStackView.addArrangedSubview(label)
+            answerStackView.spacing = 30.0
+            
+            // passing data to components
             label.text = answer
-            stackView.addArrangedSubview(label)
+            
+            // mounting the answers to the main stackView
+            stackView.addArrangedSubview(answerStackView)
         }
         
     }

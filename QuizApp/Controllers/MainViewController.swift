@@ -9,10 +9,19 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    // store all the sessions from the app
+    var sessions = [Session]()
+    
     @IBAction func buttonTap(_ sender: UIButton) {
         if enterText.hasText == true {
             self.performSegue(withIdentifier: "MainToQuestionsSegue", sender: nil)
+            sessions.append(Session(sessionUsername: enterText.text!, sessionAnswers: [], sessionScore: 0))
+            sessions.forEach {
+                print("Username: \($0.getSessionUsername)")
+                print("ID: \($0.getSessionID)")
+                print("Score: \($0.getSessionScore)")
+                print("Answers: \($0.getSessionAnswers)")
+            }
         } else {
             let alert = UIAlertController(title: "Error", message: "Enter name before starting", preferredStyle: .alert)
             alert.addAction(UIAlertAction (title: "OK", style: .default, handler: { (action) in
